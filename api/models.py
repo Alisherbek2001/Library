@@ -22,6 +22,7 @@ class Book(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True,blank=True)
     category = models.ManyToManyField(Category)
+    image = models.ImageField(upload_to='books')
     date = models.DateField(default='2024-05-21')
     price = models.IntegerField()
     discount = models.IntegerField(null=True,blank=True)
@@ -36,10 +37,6 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
-
-class Image(models.Model):
-    image = models.ImageField(upload_to='image/')
-    book = models.ForeignKey(Book,on_delete=models.CASCADE)
 
 class Client(models.Model):
     name = models.CharField(max_length=255)

@@ -8,16 +8,10 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category,CategoryAdmin)
 
 
-class ImageInline(admin.TabularInline):
-    model = Image
-
 class BookAdmin(admin.ModelAdmin):
     list_display = ['name','description','date','price','discount','wrapper','page_number']
     list_filter = ['name','description']
     list_editable = ['price','discount','wrapper','page_number']
-    inlines = [
-        ImageInline,
-    ]
     list_per_page = 10
 admin.site.register(Book,BookAdmin)
 

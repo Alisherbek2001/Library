@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book,Category,Image,Client
+from .models import Book,Category, Client
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -24,12 +24,6 @@ class BookSerializer(serializers.ModelSerializer):
 
         return book
     
-
-class ImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Image
-        fields = '__all__'
-
 
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
